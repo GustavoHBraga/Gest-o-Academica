@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gestaoacademica;
 
 import Classes.CentroUniversitario;
@@ -22,13 +17,6 @@ public class GestaoAcademica {
     public static void main(String[] args) {
         entrada = new Scanner(System.in);
         boolean sair = false;
-
-        int id = 1;
-        String nome = "Joao";
-        String email = "Joao@email.com.br";
-
-        String codigo = "111222";
-        int creditos = 10;
 
         Estudante[] estudantes = new Estudante[5];
         Disciplina[] disciplinas = new Disciplina[5];
@@ -86,5 +74,7 @@ public class GestaoAcademica {
             System.out.println("[" + i + "]" + disciplinas[i]);
         }
     }
+    
+    
 
 }
