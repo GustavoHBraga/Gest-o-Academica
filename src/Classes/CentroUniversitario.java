@@ -6,6 +6,7 @@
 package Classes;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class CentroUniversitario {
         this.nome = nome;
     }
 
-    public void carregarDados(String arqDisciplinas, String arqEstudantes, String arqMatriculas) {
+    public void carregarDados(String arqDisciplinas, String arqEstudantes, String arqMatriculas) throws FileNotFoundException {
         try {
             BufferedReader lerEstudantes = new BufferedReader(new FileReader(arqEstudantes));
             BufferedReader lerDisciplinas = new BufferedReader(new FileReader(arqDisciplinas));
@@ -35,7 +36,7 @@ public class CentroUniversitario {
             String linha = "";
             while ((linha = lerEstudantes.readLine()) != null) {
                 String[] dadosEstudantes = linha.split(":");
-                int id = Integer.parseInt(dadosEstudantes[0]);
+                long id = Long.parseLong(dadosEstudantes[0]);
                 String nome = dadosEstudantes[1];
                 String email = dadosEstudantes[2];
                 Estudante estudante = new Estudante(id, nome, email);
@@ -74,8 +75,8 @@ public class CentroUniversitario {
                     }
                 }
             }
-        } catch (Exception e) {
-            System.exit(-1);
+        } catch (FileNotFoundException ex) {
+        } catch (IOException ex) {
         }
 
     }
