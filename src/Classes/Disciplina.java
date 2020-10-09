@@ -12,7 +12,7 @@ public class Disciplina {
     //atributos de classe
     private String codigo;
     private int creditos;
-    private ArrayList<Matricula> matriculas;
+    private List<Matricula> matriculas;
 
     //metodo construtor
     public Disciplina(String codigo, int creditos) {
@@ -52,7 +52,7 @@ public class Disciplina {
         this.creditos = creditos;
     }
 
-    public ArrayList<Matricula> getMatriculas() {
+    public List<Matricula> getMatriculas() {
         return matriculas;
     }
 

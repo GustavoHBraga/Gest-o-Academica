@@ -14,7 +14,7 @@ import java.io.IOException;
 public class main {
     public static void main(String[] args) throws IOException {
         CentroUniversitario facul = new CentroUniversitario("Senac");
-        facul.carregarDados("arqDisciplinas.txt","arqEstudantes.txt");
+        facul.carregarDados("arqDisciplinas.txt","arqEstudantes.txt","arqMatriculas.txt");
         
        
     }

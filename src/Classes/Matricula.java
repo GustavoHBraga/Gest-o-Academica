@@ -16,8 +16,12 @@ public class Matricula {
 
     //metodo construtor
     public Matricula(Estudante estudante, Disciplina disciplina) {
+        
         this.estudante = estudante;
         this.disciplina = disciplina;
+    }
+    public Matricula() {
+        
     }
 
     public Estudante getEstudante() {

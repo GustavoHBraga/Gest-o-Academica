@@ -73,12 +73,7 @@ public class GestaoAcademica {
         for (int i = 0; i < disciplinas.length; i++) {
             System.out.println("[" + i + "]" + disciplinas[i]);
         }
-<<<<<<< HEAD
+
     }*/
-=======
-    }
-    
-    
->>>>>>> c303a722b980863c76e88daf504b8ee5ef292d24
 
 }

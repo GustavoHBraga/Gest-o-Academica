@@ -14,9 +14,9 @@ public class CentroUniversitario {
 
     //atributos de classe
     private String nome;
-    public  ArrayList<Estudante>estudantes;
+    private ArrayList<Estudante>estudantes;
     private ArrayList<Disciplina>disciplinas;
-
+    private ArrayList<Matricula>matriculas;
     //metodo construtor
     public CentroUniversitario(String nome) {
         this.nome = nome;
@@ -25,13 +25,13 @@ public class CentroUniversitario {
     }
 
 
-    public void carregarDados(String arqDisciplinas, String filename /*, String arqMatriculas*/) {
+    public void carregarDados(String arqDisciplinas, String filename , String arqMatriculas) {
         /*try ( BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(filename)))) {
             String linha = bufferedReader.readLine();*/
         try{
             BufferedReader lerEst = new BufferedReader(new FileReader(filename));
             BufferedReader lerDis = new BufferedReader(new FileReader(arqDisciplinas));
-            /*BufferedReader lerMat = new BufferedReader(new FileReader(arqMatriculas));*/
+            BufferedReader lerMat = new BufferedReader(new FileReader(arqMatriculas));
             
            
             String linha = "";
@@ -65,7 +65,7 @@ public class CentroUniversitario {
             while ((linha = lerDis.readLine()) != null) {
                 
                 Disciplina disciplina = new Disciplina();
-                
+              
                 String[] dados = linha.split(":");
                 
                 disciplina.setCodigo(dados[0]);
@@ -73,22 +73,61 @@ public class CentroUniversitario {
                 
                 disciplinas.add(disciplina);
             }
+            
             for (Disciplina e : disciplinas ) {
                 System.out.println(e.getCodigo());
                 System.out.println(e.getCreditos());
             }
+            /*disciplina concluido com sucesso*/
+            
+            
+            while ((linha = lerMat.readLine()) != null) {
+                
+                String[] dados = linha.split(":");
+                
+                long codigoAluno = Long.parseLong(dados[0]);
+                
+                String codigoDisciplina = dados[1];
+                
+                Estudante estudanteRef = null;
+                
+                for(Estudante estudante : estudantes) {
+                    
+                    if (estudante.getId() == codigoAluno) {
+                        estudanteRef = estudante;
+                    }
+                }
+                
+                Disciplina disciplinaRef = null;
+                
+                for (Disciplina disciplina : disciplinas) {
+                    
+                    if (disciplina.getCodigo().equals(codigoDisciplina)) {
+                        disciplinaRef = disciplina;
+                        
+                    }
+                    if (disciplinaRef == null || estudanteRef == null) {
+                        System.out.println("Aluno ou disciplina não encontrada");
 
+                    } else {
+                        Matricula matricula = new Matricula(estudanteRef, disciplinaRef);
+                        estudanteRef.addMatricula(matricula);
+                        disciplinaRef.addMatricula(matricula);
+                    }
+                }
+            }
+            for (Matricula m : matriculas ) {
+                
+            }
             
           
         } catch(Exception e){
+            
             throw new Error(e);
 
         }
         
     }
-    
-    
-
     public String getNome() {
         return nome;
     }

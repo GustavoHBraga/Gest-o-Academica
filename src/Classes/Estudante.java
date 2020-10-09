@@ -14,7 +14,7 @@ public class Estudante {
     private long id;
     private String nome;
     private String email;
-    //private List<Matricula> matriculas;
+    private List<Matricula> matriculas;
 
     //metodo construtor
     public Estudante(long id, String nome, String email) {
@@ -26,34 +26,34 @@ public class Estudante {
         
     }
 
-    /*public List<Matricula> getMatriculas() {
+    public List<Matricula> getMatriculas() {
         return matriculas;
-    }*/
+    }
 
-    /*public void setMatriculas(ArrayList<Matricula> matriculas) {
+    public void setMatriculas(ArrayList<Matricula> matriculas) {
         this.matriculas = matriculas;
-    }*/
+    }
 
     public void addMatricula(Matricula matricula) {
 
         matricula.setEstudante(this);
     }
 
-    /*public ArrayList<Disciplina> getDisciplinasMatriculadas() {
+    public ArrayList<Disciplina> getDisciplinasMatriculadas() {
         return null;
-    }*/
+    }
 
         //this.matriculas.add(matricula);
     
 
-    public List<Disciplina> getDisciplinasMatriculadas() {
+    /*public List<Disciplina> getDisciplinasMatriculadas() {
         
         List<Disciplina> disciplinas = new ArrayList<>();
         for (Matricula matricula : matriculas) {
             disciplinas.add(matricula.getDisciplina());
         }
         return disciplinas;
-    }
+    }*/
 
 
     //getters e setters
