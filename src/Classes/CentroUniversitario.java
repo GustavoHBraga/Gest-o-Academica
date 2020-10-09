@@ -35,7 +35,7 @@ public class CentroUniversitario {
             String linha = "";
             while ((linha = lerEstudantes.readLine()) != null) {
                 String[] dadosEstudantes = linha.split(":");
-                long id = Long.parseLong(dadosEstudantes[0]);
+                int id = Integer.parseInt(dadosEstudantes[0]);
                 String nome = dadosEstudantes[1];
                 String email = dadosEstudantes[2];
                 Estudante estudante = new Estudante(id, nome, email);
