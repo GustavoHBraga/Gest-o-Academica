@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Classes;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,6 +23,7 @@ public class CentroUniversitario {
         this.estudantes = new ArrayList<>();
         this.disciplinas = new ArrayList<>();
     }
+
 
     public void carregarDados(String arqDisciplinas, String filename /*, String arqMatriculas*/) {
         /*try ( BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(filename)))) {
@@ -53,6 +50,7 @@ public class CentroUniversitario {
                 estudante.setNome(dados[1]);
                 estudante.setEmail(dados[2]);
                 
+
                 estudantes.add(estudante);
                 
             }
@@ -79,10 +77,12 @@ public class CentroUniversitario {
                 System.out.println(e.getCodigo());
                 System.out.println(e.getCreditos());
             }
+
             
           
         } catch(Exception e){
             throw new Error(e);
+
         }
         
     }

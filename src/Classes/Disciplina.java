@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Classes;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -31,8 +27,12 @@ public class Disciplina {
         //a implementar
     }
 
-    public ArrayList<Estudante> getEstudantesMatriculados() {
-        return null;
+    public List<Estudante> getEstudantesMatriculados() {
+        List<Estudante> estudantes = new ArrayList<>();
+        for (Matricula matricula : matriculas) {
+            estudantes.add(matricula.getEstudante());
+        }
+        return estudantes;
     }
 
     //getters e setters
@@ -52,4 +52,17 @@ public class Disciplina {
         this.creditos = creditos;
     }
 
+    public ArrayList<Matricula> getMatriculas() {
+        return matriculas;
+    }
+
+    public void setMatriculas(ArrayList<Matricula> matriculas) {
+        this.matriculas = matriculas;
+    }
+
+    @Override
+    public String toString() {
+        return "Disciplina{" + "codigo=" + codigo + ", creditos=" + creditos + ", matriculas=" + matriculas + '}';
+    }
+    
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Classes;
 
 import java.util.ArrayList;
@@ -12,6 +7,7 @@ import java.util.List;
  *
  * @author phfar
  */
+
 public class Estudante {
 
     //atributos de classe
@@ -30,13 +26,35 @@ public class Estudante {
         
     }
 
+    /*public List<Matricula> getMatriculas() {
+        return matriculas;
+    }*/
+
+    /*public void setMatriculas(ArrayList<Matricula> matriculas) {
+        this.matriculas = matriculas;
+    }*/
+
     public void addMatricula(Matricula matricula) {
+
         matricula.setEstudante(this);
     }
 
     /*public ArrayList<Disciplina> getDisciplinasMatriculadas() {
         return null;
     }*/
+
+        //this.matriculas.add(matricula);
+    
+
+    public List<Disciplina> getDisciplinasMatriculadas() {
+        
+        List<Disciplina> disciplinas = new ArrayList<>();
+        for (Matricula matricula : matriculas) {
+            disciplinas.add(matricula.getDisciplina());
+        }
+        return disciplinas;
+    }
+
 
     //getters e setters
     public long getId() {
@@ -62,5 +80,11 @@ public class Estudante {
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Estudante{" + "id=" + id + ", nome=" + nome + ", email=" + email + ", matriculas=" + matriculas + '}';
+    }
+
+
 }
