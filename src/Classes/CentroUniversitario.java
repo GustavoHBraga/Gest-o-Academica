@@ -7,6 +7,7 @@ package Classes;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -26,81 +27,81 @@ public class CentroUniversitario {
     }
 
     public void carregarDados(String arqDisciplinas, String arqEstudantes, String arqMatriculas) {
-        //a implementar
-    }
-
-    public void carregarDadosMatriculas(String arqMatriculas) {
         try {
-            // abre arquivo para leitura
-            BufferedReader r = new BufferedReader(new FileReader(arquivoMatricula));
+            BufferedReader lerEstudantes = new BufferedReader(new FileReader(arqEstudantes));
+            BufferedReader lerDisciplinas = new BufferedReader(new FileReader(arqDisciplinas));
+            BufferedReader lerMatriculas = new BufferedReader(new FileReader(arqMatriculas));
 
-            String linha = r.readLine(); // quantidade de dados a serem lidos
-            int q = Integer.parseInt(linha);
-            String linhas[] = new String[q];
-
-            for (int i = 0; i < q; i++) {
-                linha = r.readLine();
-                linhas = linha.split("[]:");
-                Disciplina dis = new Disciplina(linhas[0], Integer.parseInt(linhas[1]));
-                Estudante est = new Estudante(
-                        Integer.parseInt(linhas[0]),
-                        linhas[1],
-                        linhas[2]);
-                Matricula mat = new Matricula(dis, est);
+            String linha = "";
+            while ((linha = lerEstudantes.readLine()) != null) {
+                String[] dadosEstudantes = linha.split(":");
+                long id = Long.parseLong(dadosEstudantes[0]);
+                String nome = dadosEstudantes[1];
+                String email = dadosEstudantes[2];
+                Estudante estudante = new Estudante(id, nome, email);
+                estudantes.add(estudante);
             }
-            r.close();   // fecha arquivo de entrada
-
+            while ((linha = lerDisciplinas.readLine()) != null) {
+                String[] dadosDisciplinas = linha.split(":");
+                String codigo = dadosDisciplinas[0];
+                int creditos = Integer.parseInt(dadosDisciplinas[1]);
+                Disciplina disciplina = new Disciplina(codigo, creditos);
+                disciplinas.add(disciplina);
+            }
+            while ((linha = lerMatriculas.readLine()) != null) {
+                String[] dadosDisciplinas = linha.split(":");
+                long codigoAluno = Long.parseLong(dadosDisciplinas[0]);
+                String codigoDisciplina = dadosDisciplinas[1];
+                Estudante estudanteRef = null;
+                for (Estudante estudante : estudantes) {
+                    if (estudante.getId() == codigoAluno) {
+                        estudanteRef = estudante;
+                    }
+                }
+                Disciplina disciplinaRef = null;
+                for (Disciplina disciplina : disciplinas) {
+                    if (disciplina.getCodigo().equals(codigoDisciplina)) {
+                        {
+                            disciplinaRef = disciplina;
+                        }
+                    }
+                    if (disciplinaRef == null || estudanteRef == null) {
+                        System.out.println("Aluno ou disciplina não encontrada");
+                    } else {
+                        Matricula matricula = new Matricula(estudanteRef, disciplinaRef);
+                        estudanteRef.addMatricula(matricula);
+                        disciplinaRef.addMatricula(matricula);
+                    }
+                }
+            }
         } catch (Exception e) {
             System.exit(-1);
         }
 
     }
 
-    public void carregarDadosDisciplinas(String arqDisciplinas) {
-        disciplinas = new ArrayList<>();
-        try {
-            // abre arquivo para leitura
-            BufferedReader r = new BufferedReader(new FileReader(arqDisciplinas));
-
-            String linha = r.readLine(); // quantidade de dados a serem lidos
-            int q = Integer.parseInt(linha);
-            String linhas[] = new String[q];
-            for (int i = 0; i < q; i++) {
-                linha = r.readLine();
-                linhas = linha.split("[]:");
-
-                Disciplina dis = new Disciplina(linhas[0], Integer.parseInt(linhas[1]));
-            }
-            r.close();   // fecha arquivo de entrada
-
-        } catch (Exception e) {
-            System.exit(-1);
-        }
+    public String getNome() {
+        return nome;
     }
 
-    public void carregarDadosEstudantes(String arqEstudantes) {
-        estudantes = new ArrayList<>();
-        try {
-            // abre arquivo para leitura
-            BufferedReader r = new BufferedReader(new FileReader(arqEstudantes));
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-            String linha = r.readLine(); // quantidade de dados a serem lidos
-            int q = Integer.parseInt(linha);
-            String linhas[] = new String[q];
-            for (int i = 0; i < q; i++) {
-                linha = r.readLine();
-                linhas = linha.split("[]:");
+    public ArrayList<Estudante> getEstudantes() {
+        return estudantes;
+    }
 
-                Estudante est = new Estudante(
-                        Integer.parseInt(linhas[0]),
-                        linhas[1],
-                        linhas[2]);
-            }
-            r.close();   // fecha arquivo de entrada
+    public void setEstudantes(ArrayList<Estudante> estudantes) {
+        this.estudantes = estudantes;
+    }
 
-        } catch (Exception e) {
-            System.exit(-1);
-        }
+    public ArrayList<Disciplina> getDisciplinas() {
+        return disciplinas;
+    }
+
+    public void setDisciplinas(ArrayList<Disciplina> disciplinas) {
+        this.disciplinas = disciplinas;
     }
 
 }
