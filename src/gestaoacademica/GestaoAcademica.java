@@ -19,7 +19,7 @@ public class GestaoAcademica {
 
     public static Scanner entrada;
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         entrada = new Scanner(System.in);
         boolean sair = false;
 
@@ -85,6 +85,6 @@ public class GestaoAcademica {
         for (int i = 0; i < disciplinas.length; i++) {
             System.out.println("[" + i + "]" + disciplinas[i]);
         }
-    }
+    }*/
 
 }

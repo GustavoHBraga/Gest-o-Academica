@@ -23,6 +23,9 @@ public class Disciplina {
         this.codigo = codigo;
         this.creditos = creditos;
     }
+    public Disciplina() {
+        
+    }
 
     public void addMatricula(Matricula matricula) {
         //a implementar

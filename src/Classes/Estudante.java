@@ -6,6 +6,7 @@
 package Classes;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -14,33 +15,35 @@ import java.util.ArrayList;
 public class Estudante {
 
     //atributos de classe
-    private int id;
+    private long id;
     private String nome;
     private String email;
-    private ArrayList<Matricula> matriculas;
+    //private List<Matricula> matriculas;
 
     //metodo construtor
-    public Estudante(int id, String nome, String email) {
+    public Estudante(long id, String nome, String email) {
         this.id = id;
         this.nome = nome;
         this.email = email;
     }
+    public Estudante() {
+        
+    }
 
     public void addMatricula(Matricula matricula) {
-        //a implementar
+        matricula.setEstudante(this);
     }
 
-    public ArrayList<Disciplina> getDisciplinasMatriculadas() {
-        //a implementar
+    /*public ArrayList<Disciplina> getDisciplinasMatriculadas() {
         return null;
-    }
+    }*/
 
     //getters e setters
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -59,5 +62,5 @@ public class Estudante {
     public void setEmail(String email) {
         this.email = email;
     }
-
+    
 }
