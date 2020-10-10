@@ -14,7 +14,7 @@ public class Estudante {
     private long id;
     private String nome;
     private String email;
-    private List<Matricula> matriculas;
+    private ArrayList<Matricula> matriculas;
 
     //metodo construtor
     public Estudante(long id, String nome, String email) {
@@ -25,8 +25,11 @@ public class Estudante {
     public Estudante() {
         
     }
+    public void addMatricula(Matricula a){
+        this.matriculas.add(a);
+    }
 
-    public List<Matricula> getMatriculas() {
+    public ArrayList<Matricula> getMatriculas() {
         return matriculas;
     }
 
@@ -34,15 +37,12 @@ public class Estudante {
         this.matriculas = matriculas;
     }
 
-    public void addMatricula(Matricula matricula) {
-
-        matricula.setEstudante(this);
-    }
-
     public ArrayList<Disciplina> getDisciplinasMatriculadas() {
         return null;
     }
-
+    
+    
+    
         //this.matriculas.add(matricula);
     
 

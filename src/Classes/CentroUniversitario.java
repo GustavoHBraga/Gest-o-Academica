@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -22,6 +23,7 @@ public class CentroUniversitario {
         this.nome = nome;
         this.estudantes = new ArrayList<>();
         this.disciplinas = new ArrayList<>();
+        
     }
 
 
@@ -81,7 +83,8 @@ public class CentroUniversitario {
             /*disciplina concluido com sucesso*/
             
             
-            while ((linha = lerMat.readLine()) != null) {
+            /*while ((linha = lerMat.readLine()) != null) {
+                
                 
                 String[] dados = linha.split(":");
                 
@@ -106,27 +109,22 @@ public class CentroUniversitario {
                         disciplinaRef = disciplina;
                         
                     }
-                    if (disciplinaRef == null || estudanteRef == null) {
-                        System.out.println("Aluno ou disciplina não encontrada");
+                }    
+                if (disciplinaRef == null || estudanteRef == null) {
+                    System.out.println("Aluno ou disciplina não encontrada");
 
-                    } else {
-                        Matricula matricula = new Matricula(estudanteRef, disciplinaRef);
-                        estudanteRef.addMatricula(matricula);
-                        disciplinaRef.addMatricula(matricula);
-                    }
+                } else {
+                    Matricula matricula = new Matricula(estudanteRef, disciplinaRef);
+                    estudanteRef.addMatricula(matricula);
+                    disciplinaRef.addMatricula(matricula);
                 }
-            }
-            for (Matricula m : matriculas ) {
                 
-            }
-            
-          
+            }*/
+            /*O codigo a cima está com problema, tentar elaborar um FOR interativo para pegar todas as 
+            disciplinas e todas os estudantes que sejam igual os parametros do split*/
         } catch(Exception e){
-            
             throw new Error(e);
-
         }
-        
     }
     public String getNome() {
         return nome;
@@ -152,4 +150,40 @@ public class CentroUniversitario {
         this.disciplinas = disciplinas;
     }
     
+    public void exibirEstundantes(){
+        for (Estudante e : estudantes) {
+            System.out.println(e);
+        }
+    }
+    
+    public void exibirDisciplinas(){
+        for (Disciplina d : disciplinas) {
+            System.out.println(d);
+        }
+    }
+    public void exibirMatriculas(){
+        for (Matricula m : matriculas) {
+            System.out.println(m);
+        }
+    }
+    
+    
+    
+    public Estudante FindEstudante(long id){
+        for (Estudante e : estudantes) {
+            if(e.getId() == id){
+                return e;
+            }
+        }
+        return null;
+    }
+    
+    public Disciplina FindDisciplina(String cod){
+        for (Disciplina d: disciplinas) {
+            if(d.getCodigo().equals(cod)){
+                return d;
+            }
+        }
+        return null;
+    }
 }
