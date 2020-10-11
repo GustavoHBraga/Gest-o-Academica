@@ -14,6 +14,7 @@ public class Estudante {
     private long id;
     private String nome;
     private String email;
+    private Matricula matricula;
     private ArrayList<Matricula> matriculas;
 
     //metodo construtor
@@ -80,6 +81,11 @@ public class Estudante {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public void setMatricula(Matricula matricula) {
+        this.matricula = matricula;
+    }
+    
 
     @Override
     public String toString() {

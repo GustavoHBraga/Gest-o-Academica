@@ -23,7 +23,7 @@ public class CentroUniversitario {
         this.nome = nome;
         this.estudantes = new ArrayList<>();
         this.disciplinas = new ArrayList<>();
-        
+        this.matriculas = new ArrayList<>();
     }
 
 
@@ -83,7 +83,7 @@ public class CentroUniversitario {
             /*disciplina concluido com sucesso*/
             
             
-            /*while ((linha = lerMat.readLine()) != null) {
+            while ((linha = lerMat.readLine()) != null) {
                 
                 
                 String[] dados = linha.split(":");
@@ -92,34 +92,26 @@ public class CentroUniversitario {
                 
                 String codigoDisciplina = dados[1];
                 
-                Estudante estudanteRef = null;
+                 
+                Estudante estudanteRef = FindEstudante(codigoAluno);
+                if(estudanteRef != null){
+                    System.out.println("achou"+estudanteRef);
+                } 
                 
-                for(Estudante estudante : estudantes) {
-                    
-                    if (estudante.getId() == codigoAluno) {
-                        estudanteRef = estudante;
-                    }
+                Disciplina disciplinaRef = FindDisciplina(codigoDisciplina);
+                if(disciplinaRef != null){
+                    System.out.println("achou disciplina"+disciplinaRef);
                 }
                 
-                Disciplina disciplinaRef = null;
-                
-                for (Disciplina disciplina : disciplinas) {
-                    
-                    if (disciplina.getCodigo().equals(codigoDisciplina)) {
-                        disciplinaRef = disciplina;
-                        
-                    }
-                }    
-                if (disciplinaRef == null || estudanteRef == null) {
-                    System.out.println("Aluno ou disciplina não encontrada");
-
+                if (disciplinaRef != null || estudanteRef != null) {
+                    System.out.println("Tudo ok");
+                    Matricula matricula = new Matricula(estudanteRef,disciplinaRef);
+                    //estudanteRef.addMatricula(matricula);
+                    //disciplinaRef.addMatricula(matricula);
                 } else {
-                    Matricula matricula = new Matricula(estudanteRef, disciplinaRef);
-                    estudanteRef.addMatricula(matricula);
-                    disciplinaRef.addMatricula(matricula);
+                    System.out.println("nao ok");
                 }
-                
-            }*/
+            }
             /*O codigo a cima está com problema, tentar elaborar um FOR interativo para pegar todas as 
             disciplinas e todas os estudantes que sejam igual os parametros do split*/
         } catch(Exception e){
@@ -167,8 +159,6 @@ public class CentroUniversitario {
         }
     }
     
-    
-    
     public Estudante FindEstudante(long id){
         for (Estudante e : estudantes) {
             if(e.getId() == id){
@@ -186,4 +176,9 @@ public class CentroUniversitario {
         }
         return null;
     }
+
+    public ArrayList<Matricula> getMatriculas() {
+        return matriculas;
+    }
+    
 }
