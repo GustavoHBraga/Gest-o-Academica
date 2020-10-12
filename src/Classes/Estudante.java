@@ -1,11 +1,10 @@
 package Classes;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
- * @author phfar
+ * @author JPG
  */
 
 public class Estudante {
@@ -18,14 +17,17 @@ public class Estudante {
     private ArrayList<Matricula> matriculas;
 
     //metodo construtor
+    public Estudante() {
+    }
+    
     public Estudante(long id, String nome, String email) {
         this.id = id;
         this.nome = nome;
         this.email = email;
     }
-    public Estudante() {
-        
-    }
+    
+    // MÉTODOS
+    
     public void addMatricula(Matricula a){
         this.matriculas.add(a);
     }
@@ -41,12 +43,9 @@ public class Estudante {
     public ArrayList<Disciplina> getDisciplinasMatriculadas() {
         return null;
     }
+   
+    //this.matriculas.add(matricula);
     
-    
-    
-        //this.matriculas.add(matricula);
-    
-
     /*public List<Disciplina> getDisciplinasMatriculadas() {
         
         List<Disciplina> disciplinas = new ArrayList<>();
@@ -56,8 +55,8 @@ public class Estudante {
         return disciplinas;
     }*/
 
-
-    //getters e setters
+    // GETTERS E SETTERS
+    
     public long getId() {
         return id;
     }
@@ -85,12 +84,11 @@ public class Estudante {
     public void setMatricula(Matricula matricula) {
         this.matricula = matricula;
     }
+   
+    // OVERRIDE
     
-
     @Override
     public String toString() {
         return "Estudante{" + "id=" + id + ", nome=" + nome + ", email=" + email + ", matriculas=" + matriculas + '}';
     }
-
-
 }

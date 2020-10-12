@@ -5,8 +5,9 @@ import java.util.List;
 
 /**
  *
- * @author phfar
+ * @author JPG
  */
+
 public class Disciplina {
 
     //atributos de classe
@@ -15,16 +16,16 @@ public class Disciplina {
     private ArrayList<Matricula> matriculas;
 
     //metodo construtor
+    public Disciplina() {
+    }    
+    
     public Disciplina(String codigo, int creditos) {
         this.codigo = codigo;
         this.creditos = creditos;
-        
-        
-    }
-    public Disciplina() {
-        
     }
 
+    // MÉTODOS
+    
     public void addMatricula(Matricula matricula) {
         this.matriculas.add(matricula);
     }
@@ -37,7 +38,8 @@ public class Disciplina {
         return estudantes;
     }
 
-    //getters e setters
+    // GETTERS E SETTERS
+    
     public String getCodigo() {
         return codigo;
     }
@@ -62,9 +64,10 @@ public class Disciplina {
         this.matriculas = matriculas;
     }
 
+    // OVERRIDE
+    
     @Override
     public String toString() {
         return "Disciplina{" + "codigo=" + codigo + ", creditos=" + creditos + ", matriculas=" + matriculas + '}';
     }
-    
 }

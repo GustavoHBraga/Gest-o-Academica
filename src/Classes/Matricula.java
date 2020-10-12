@@ -1,29 +1,28 @@
 package Classes;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.util.ArrayList;
-
 /**
  *
- * @author phfar
+ * @author JPG
  */
+
 public class Matricula {
 
     //atributos de classe
     private Estudante estudante;
     private Disciplina disciplina;
-
+    
     //metodo construtor
+    
+    public Matricula() {
+    }
+    
     public Matricula(Estudante estudante, Disciplina disciplina) {
-        
         this.estudante = estudante;
         this.disciplina = disciplina;
     }
-    public Matricula() {
-        
-    }
-
+    
+    // GETTERS E SETTERS
+    
     public Estudante getEstudante() {
         return estudante;
     }
@@ -40,12 +39,10 @@ public class Matricula {
         this.disciplina = disciplina;
     }
     
-
+    // OVERRIDE
+    
     @Override
     public String toString() {
         return "Matricula{" + "estudante=" + estudante + ", disciplina=" + disciplina + '}';
     }
-    
-    
-
 }
