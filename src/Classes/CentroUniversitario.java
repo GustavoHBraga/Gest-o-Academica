@@ -106,8 +106,8 @@ public class CentroUniversitario {
                 if (disciplinaRef != null || estudanteRef != null) {
                     System.out.println("Tudo ok");
                     Matricula matricula = new Matricula(estudanteRef,disciplinaRef);
-                    //estudanteRef.addMatricula(matricula);
-                    //disciplinaRef.addMatricula(matricula);
+                    //estudanteRef.addMatricula(matricula);// nao esta funcionando 
+                    //disciplinaRef.addMatricula(matricula);  nao esta funcionando
                 } else {
                     System.out.println("nao ok");
                 }
@@ -167,10 +167,26 @@ public class CentroUniversitario {
         }
         return null;
     }
+    public Estudante FindEstudanteByTest(long id,String nome,String email){
+        for (Estudante e : estudantes) {
+            if(e.getId() == id || e.getNome().equals(nome) || e.getEmail().equals(email)){
+                return e;
+            }
+        }
+        return null;
+    }
     
     public Disciplina FindDisciplina(String cod){
         for (Disciplina d: disciplinas) {
             if(d.getCodigo().equals(cod)){
+                return d;
+            }
+        }
+        return null;
+    }
+    public Disciplina FindDisciplinaByTest(String cod, int cre){
+        for (Disciplina d: disciplinas) {
+            if(d.getCodigo().equals(cod)|| d.getCreditos() == cre){
                 return d;
             }
         }
