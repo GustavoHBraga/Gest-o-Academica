@@ -39,7 +39,7 @@ public class Matricula {
     public void setDisciplina(Disciplina disciplina) {
         this.disciplina = disciplina;
     }
-
+    
 
     @Override
     public String toString() {
