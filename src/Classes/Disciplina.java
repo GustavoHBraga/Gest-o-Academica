@@ -16,8 +16,6 @@ public class Disciplina {
     private List<Matricula> matriculas;
 
     //metodo construtor
-    public Disciplina() {
-    }    
     
     public Disciplina(String codigo, int creditos) {
         this.codigo = codigo;

@@ -7,7 +7,6 @@ import java.util.List;
  *
  * @author JPG
  */
-
 public class Estudante {
 
     //atributos de classe
@@ -17,36 +16,19 @@ public class Estudante {
     private List<Matricula> matriculas;
 
     //metodo construtor
-    public Estudante() {
-    }
-    
-//    public Estudante(Estudante e){
-//        List<Estudante> matriculas = new ArrayList<>();
-//    }
-    
     public Estudante(long id, String nome, String email) {
         this.id = id;
         this.nome = nome;
         this.email = email;
-        matriculas = new ArrayList<>();
+        this.matriculas = new ArrayList<>();
     }
-    
+
     // MÉTODOS
-    
-    public void addMatricula(Matricula matricula){
-        matriculas.add(matricula);
+    public void addMatricula(Matricula matricula) {
+        this.matriculas.add(matricula);
     }
 
-    public List<Matricula> getMatriculas() {
-        return matriculas;
-    }
-
-    public void setMatriculas(List<Matricula> matriculas) {
-        this.matriculas = matriculas;
-    }
-    
     public List<Disciplina> getDisciplinasMatriculadas() {
-        
         List<Disciplina> disciplinas = new ArrayList<>();
         for (Matricula matricula : matriculas) {
             disciplinas.add(matricula.getDisciplina());
@@ -54,8 +36,14 @@ public class Estudante {
         return disciplinas;
     }
 
-    // GETTERS E SETTERS
+    // OVERRIDE
+    @Override
+    public String toString() {
+        return "Estudante[" + "Id:" + id + " |Nome:" + nome + " |Email:"
+                + email + " |Matrículas (" + matriculas + ")]";
+    }
     
+    // GETTERS E SETTERS
     public long getId() {
         return id;
     }
@@ -79,12 +67,12 @@ public class Estudante {
     public void setEmail(String email) {
         this.email = email;
     }
-   
-    // OVERRIDE
     
-    @Override
-    public String toString() {
-        return "Estudante[" + "Id:" + id + " |Nome:" + nome + " |Email:"
-                + email + " |Matrículas (" + matriculas + ")]";
+    public List<Matricula> getMatriculas() {
+        return matriculas;
+    }
+    
+    public void setMatriculas(List<Matricula> matriculas) {
+        this.matriculas = matriculas;
     }
 }

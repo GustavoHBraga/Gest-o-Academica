@@ -32,23 +32,15 @@ public class CentroUniversitario {
 
         String linha;
 
-        try {
-            //LEITURA ESTUDANTES
-            try ( BufferedReader lerEst = new BufferedReader(new FileReader(arqEst))) {
+        //LEITURA ESTUDANTES
+        try ( BufferedReader lerEst = new BufferedReader(new FileReader(arqEst))) {
 
-                while ((linha = lerEst.readLine()) != null) {
+            while ((linha = lerEst.readLine()) != null) {
+                String[] dados = linha.split(":");
+                Estudante est = new Estudante(Long.parseLong(dados[0]), dados[1], dados[2]);
+                estudantes.add(est);
 
-                    Estudante estudante = new Estudante();
-                    String[] dados = linha.split(":");
-
-                    estudante.setId(Long.parseLong(dados[0]));
-                    estudante.setNome(dados[1]);
-                    estudante.setEmail(dados[2]);
-
-                    estudantes.add(estudante);
-
-                    /*estudante concluido com sucesso*/
-                }
+                /*estudante concluido com sucesso*/
             }
         } catch (IOException | NumberFormatException e) {
             throw new Error(e);
@@ -58,14 +50,9 @@ public class CentroUniversitario {
         try ( BufferedReader lerDis = new BufferedReader(new FileReader(arqDis))) {
             while ((linha = lerDis.readLine()) != null) {
 
-                Disciplina disciplina = new Disciplina();
-
                 String[] dados = linha.split(":");
-
-                disciplina.setCodigo(dados[0]);
-                disciplina.setCreditos(Integer.parseInt(dados[1]));
-
-                disciplinas.add(disciplina);
+                Disciplina dis = new Disciplina(dados[0], Integer.parseInt(dados[1]));
+                disciplinas.add(dis);
 
                 /*disciplina concluido com sucesso*/
             }
@@ -79,31 +66,34 @@ public class CentroUniversitario {
             while ((linha = lerMat.readLine()) != null) {
                 //Separa o arquivo em array String
                 String[] dados = linha.split(":");
-                long codEstudante = Long.parseLong(dados[0]);
-                String codDisciplina = dados[1];
+                long codEst = Long.parseLong(dados[0]);
+                String codDis = dados[1];
 
                 //Verifica se o estudante existe
-                Estudante eRef = FindEstudante(codEstudante);
-                if (eRef == null) {
-                    System.out.println("Não achou nenhum estudante com o código: "
-                            + codEstudante + "\n");
+                Estudante estudante = null;
+                for (Estudante est : estudantes){
+                    if(est.getId() == codEst){
+                        est = estudante;
+                    }
                 }
 
                 //Verifica se a disciplica existe
-                Disciplina dRef = FindDisciplina(codDisciplina);
-                if (dRef == null) {
-                    System.out.println("Não achou nenhuma disciplina com o código: "
-                            + codDisciplina + "\n");
+                Disciplina disciplina = null;
+                for (Disciplina dis : disciplinas){
+                    if(dis.getCodigo().equals(codDis)){
+                        disciplina = dis;
+                    }
                 }
-
-                if (dRef != null || eRef != null) {
-                    //System.out.println("Tudo ok \n");
-                    Matricula matricula = new Matricula(eRef, dRef);
-                    System.out.println(matricula);
-                    this.matriculas.add(matricula);
-                    //disciplinaRef.addMatricula(matricula);
+                
+                //Verifica se nenhum é null
+                if (disciplina == null || estudante == null) {
+                    System.out.println("Estudante ou matrícula não encontrado");
+                    
                 } else {
-                    System.out.println("nao ok");
+                    Matricula matricula = new Matricula(estudante, disciplina);
+                    
+                    estudante.addMatricula(matricula);
+                    disciplina.addMatricula(matricula);
                 }
             }
         } catch (IOException | NumberFormatException e) {
