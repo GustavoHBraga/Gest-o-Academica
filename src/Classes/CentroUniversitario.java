@@ -124,19 +124,42 @@ public class CentroUniversitario {
     
     public void exibirEstundantes(){
         for (Estudante e : estudantes) {
-            System.out.println(e.getId()+"  "+e.getNome());
+            System.out.println("|-------------------|");
+            System.out.println(e.getId()+"        "+e.getNome());
         }
     }
     
     public void exibirDisciplinas(){
         for (Disciplina d : disciplinas) {
-            System.out.println(d.getCodigo()+"  "+d.getCreditos());
+            System.out.println(d.getCodigo()+"        "+d.getCreditos());
+        }
+    }
+    
+    public void FindDisciplina(String cod){
+        
+        for (Disciplina d: disciplinas) {
+            if(d.getCodigo().equals(cod)){
+                System.out.println("Total de alunos na Disciplina ("+cod+")  = "+d.getEstudantesMatriculados().size()+"\n");
+                System.out.println(d.getEstudantesMatriculados());
+            }
+        }
+    }
+    
+    public void FindEstudante(long id){
+        
+        for (Estudante e: estudantes) {
+            if(e.getId() == id){
+                System.out.println("Total de disciplinas matriculadas pelo aluno ( "+e.getNome()+" )  = "+e.getDisciplinasMatriculadas().size()+"\n");
+                System.out.println(e.getDisciplinasMatriculadas());
+            }
         }
     }
 
     @Override
     public String toString() {
-        return "CentroUniversitario{" + "nome=" + nome + ", estudantes=" + estudantes + ", disciplinas=" + disciplinas + '}';
+        return "Centro Universitario " + nome + "\n\n" 
+                + ">>>LISTA de ESTUDANTES<<<"+estudantes 
+                + "\n\n>>>LISTA de DISCIPLINAS<<<" + disciplinas;
     }
 
 }

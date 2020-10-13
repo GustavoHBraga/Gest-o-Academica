@@ -12,6 +12,7 @@ import java.util.List;
  *
  * @author phfar
  */
+
 public class GestaoAcademica {
 
     public static Scanner entrada;
@@ -20,61 +21,66 @@ public class GestaoAcademica {
         entrada = new Scanner(System.in);
         boolean sair = false;
 
-        List<Estudante> estudantes; // = new ArrayList<Estudante>();
-        List<Disciplina> disciplinas; // = new ArrayList<Disciplina>();
-        List<Matricula> matriculas; // = new ArrayList<Matricula>();
-        CentroUniversitario centroUniversitario = new CentroUniversitario("JAVA");
+        CentroUniversitario centroUniversitario = new CentroUniversitario("Senac");
         centroUniversitario.carregarDados("arqDisciplinas.txt", "arqEstudantes.txt", "arqMatriculas.txt");
         System.out.println(centroUniversitario);
 
+        System.out.println("");
+        
         while (!sair) {
+
+            System.out.print("|===============>> ESCOLHA UMA OPÇÃO <<================|\n"
+                    + "|------------------------------------------------------|\n"
+                    + "| (1) Listar os números e nomes de todos os estudantes |\n"
+                    + "|------------------------------------------------------|\n"
+                    + "| (2) Listar os códigos de todas as disciplinas        |\n"
+                    + "|------------------------------------------------------|\n"
+                    + "| (3) Listar todas as informações dos estudantes       |\n"
+                    + "|     matriculados em uma determinada disciplina       |\n"
+                    + "|------------------------------------------------------|\n"
+                    + "| (4) Listar todas as informações das disciplinas em   |\n"
+                    + "|     que um determinado estudante está matriculado    |\n"
+                    + "|------------------------------------------------------|\n"
+                    + "| (5) Sair                                             |\n"
+                    + "|======================================================|\n"
+                    + "\n"
+                    + "Digite uma opção: ");
+
+            int opt = entrada.nextInt();
+            System.out.println("");
             
-            System.out.println("Escolha	uma operação: ");
- 
-            System.out.println("(1) Listar os números e	nomes de todos os estudantes ");
-            
-            System.out.println("(2) Listar os códigos	de todas as disciplinas ");
-            
-            System.out.println("(3) Listar todas as informações dos estudantes matriculados "
-                    + "em uma determinada disciplina ");
-            
-            System.out.println("(4) Listar todas as informações das disciplinas em que um "
-                    + "determinado estudante está matriculado ");
-            
-            System.out.println("(5) sair ");
-            
-            System.out.print("Opção escolhida: ");
-            int escolha = entrada.nextInt();
-            
-            System.out.println("\n");
-            switch (escolha) {
+            switch (opt) {
                 case 1:
+                    System.out.println("|   COD    |    NOMES  |");
                     centroUniversitario.exibirEstundantes();
+                    
                     break;
                 case 2:
-                    System.out.println("COD  | CREDITO");
+                    System.out.println("|   COD  |   CREDITO  |");
                     centroUniversitario.exibirDisciplinas();
                     break;
                 case 3:
-                    
-                    System.out.println("Digite o cod da disciplina");
-                    long codDisciplina = entrada.nextLong();
-                    
+
+                    System.out.print("Digite o cod da disciplina");
+                    String codDisciplina = entrada.next();
+                    centroUniversitario.FindDisciplina(codDisciplina);
                     break;
+                
                 case 4:
-                    System.out.println("Digite ID do estudante");
-                    int ID = entrada.nextInt();
+                    System.out.print("Digite ID do estudante");
+                    long ID = entrada.nextLong();
+                    centroUniversitario.FindEstudante(ID);
                     break;
+                
                 case 5:
                     sair = true;
                     break;
+                
                 default:
-                    System.out.println("Opção inválida ");
+                    System.out.println("Opção inválida ' "+opt+" '");
             }
             System.out.println();
         }
         System.out.println("Fim do programa ");
-
     }
-
 }

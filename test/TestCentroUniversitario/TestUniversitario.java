@@ -78,12 +78,17 @@ public class TestUniversitario {
         CentroUniversitario facul = new CentroUniversitario("Senac");
         facul.carregarDados("arqDisciplinas.txt","arqEstudantes.txt","arqMatriculas.txt");
         
-        ArrayList<Estudante> estudantesArray = new ArrayList<>();
-        int numeroObtido = facul.getEstudantes().size();
         
-        /*for (int i=0; i<estudantesArray.size(); i++) {
-            Estudante estudanteArray = estudantesArray.get(i);
-            int id = Integer.parseInt(estudanteArray[0]);
+        //int numeroObtido = facul.getEstudantes().size();
+        
+        /*for (int i=0; i<facul.getEstudantes().size(); i++) {
+            
+            long id = facul.getEstudantes().get(i).getId();
+            Estudante estudante = findEstudanteById(id, estudantes);
+            if(facul.getEstudantes().get(i).){
+                
+            }
+            
             Estudante estudante = findEstudanteById(id, estudantes);
             assertEquals(matriculasPorEstudante[i], estudante.getMatriculas().size());,
         }
