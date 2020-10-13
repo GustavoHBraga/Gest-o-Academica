@@ -154,6 +154,28 @@ public class CentroUniversitario {
             }
         }
     }
+    
+    public void listarEstudantesMatriculados(String cod){
+        int total =0;
+        for (int i = 0; i < disciplinas.size(); i++){
+            if(cod.equals(disciplinas.get(i).getCodigo())) {
+                System.out.println(disciplinas.get(i));
+                total = disciplinas.get(i).getTotalEstudantes();
+            }
+        }  
+        System.out.println("Total de estudantes matriculados: "+total);
+    }
+    
+    public void listarDisciplinasMatriculados(long id){
+        int total = 0;
+        for (Estudante e : estudantes){
+            if(id == e.getId()){
+                System.out.println(e);
+                total = e.somaCreditos();
+            }
+        }
+        System.out.println("Total de estudantes matriculados: "+total);
+    }
 
     @Override
     public String toString() {
@@ -161,5 +183,4 @@ public class CentroUniversitario {
                 + ">>>LISTA de ESTUDANTES<<<"+estudantes 
                 + "\n\n>>>LISTA de DISCIPLINAS<<<" + disciplinas;
     }
-
 }

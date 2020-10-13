@@ -36,6 +36,14 @@ public class Estudante {
     
     
 
+    public int somaCreditos() {
+        int total = 0;
+        for (Matricula matricula : matriculas) {
+            total += matricula.getDisciplina().getCreditos();
+        }
+        return total;
+    }
+
     public long getId() {
         return id;
     }
@@ -59,7 +67,7 @@ public class Estudante {
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
     public List<Matricula> getMatriculas() {
         return matriculas;
     }
@@ -73,3 +81,4 @@ public class Estudante {
         return "\n\nId:" + id + " | Nome: " + nome + " | Email: " + email + "\nMatrícula(s): " + matriculas;
     }
 }
+

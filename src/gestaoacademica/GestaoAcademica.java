@@ -23,7 +23,9 @@ public class GestaoAcademica {
 
         CentroUniversitario centroUniversitario = new CentroUniversitario("Senac");
         centroUniversitario.carregarDados("arqDisciplinas.txt", "arqEstudantes.txt", "arqMatriculas.txt");
-        System.out.println(centroUniversitario);
+        //System.out.println(centroUniversitario);
+
+        System.out.println("");
 
         System.out.println("");
         
@@ -51,25 +53,25 @@ public class GestaoAcademica {
             
             switch (opt) {
                 case 1:
-                    System.out.println("|   COD    |    NOMES  |");
+                    System.out.println("COD | NOMES");
                     centroUniversitario.exibirEstundantes();
-                    
                     break;
+                    
                 case 2:
                     System.out.println("|   COD  |   CREDITO  |");
                     centroUniversitario.exibirDisciplinas();
                     break;
+                    
                 case 3:
-
-                    System.out.print("Digite o cod da disciplina");
-                    String codDisciplina = entrada.next();
-                    centroUniversitario.FindDisciplina(codDisciplina);
+                    System.out.print("Digite o cod da disciplina: ");
+                    String codDis = entrada.next();
+                    centroUniversitario.listarEstudantesMatriculados(codDis);
                     break;
-                
+                    
                 case 4:
-                    System.out.print("Digite ID do estudante");
-                    long ID = entrada.nextLong();
-                    centroUniversitario.FindEstudante(ID);
+                    System.out.print("Digite ID do estudante: ");
+                    long id = entrada.nextLong();
+                    centroUniversitario.listarDisciplinasMatriculados(id);
                     break;
                 
                 case 5:
@@ -83,4 +85,5 @@ public class GestaoAcademica {
         }
         System.out.println("Fim do programa ");
     }
+
 }
