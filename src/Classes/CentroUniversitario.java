@@ -146,11 +146,14 @@ public class CentroUniversitario {
     }
     
     public void listarDisciplinasMatriculados(int id){
+        int total = 0;
         for (Estudante e : estudantes){
             if(id == e.getId()){
                 System.out.println(e);
+                total = e.somaCreditos();
             }
-        }  
+        }
+        System.out.println("Total de estudantes matriculados: "+total);
     }
 
     @Override
