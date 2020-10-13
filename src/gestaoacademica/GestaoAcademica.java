@@ -12,7 +12,6 @@ import java.util.List;
  *
  * @author phfar
  */
-
 public class GestaoAcademica {
 
     public static Scanner entrada;
@@ -23,10 +22,10 @@ public class GestaoAcademica {
 
         CentroUniversitario centroUniversitario = new CentroUniversitario("Senac");
         centroUniversitario.carregarDados("arqDisciplinas.txt", "arqEstudantes.txt", "arqMatriculas.txt");
-        System.out.println(centroUniversitario);
+        //System.out.println(centroUniversitario);
 
         System.out.println("");
-        
+
         while (!sair) {
 
             System.out.print("|===============>> ESCOLHA UMA OPÇÃO <<================|\n"
@@ -48,26 +47,28 @@ public class GestaoAcademica {
 
             int opt = entrada.nextInt();
             System.out.println("");
-            
+
             switch (opt) {
                 case 1:
                     System.out.println("COD | NOMES");
                     centroUniversitario.exibirEstundantes();
                     break;
+                    
                 case 2:
                     System.out.println("COD  | CREDITO");
                     centroUniversitario.exibirDisciplinas();
                     break;
-                case 3:
-
-                    System.out.print("Digite o cod da disciplina");
-                    long codDisciplina = entrada.nextLong();
-
-                    break;
-                case 4:
-                    System.out.print("Digite ID do estudante");
-                    int ID = entrada.nextInt();
                     
+                case 3:
+                    System.out.print("Digite o cod da disciplina: ");
+                    String codDis = entrada.next();
+                    centroUniversitario.listarEstudantesMatriculados(codDis);
+                    break;
+                    
+                case 4:
+                    System.out.print("Digite ID do estudante: ");
+                    int id = entrada.nextInt();
+                    centroUniversitario.listarDisciplinasMatriculados(id);
                     break;
                 case 5:
                     sair = true;

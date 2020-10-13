@@ -31,6 +31,14 @@ public class Disciplina {
         }
         return estudantes;
     }
+    
+    public int getTotalEstudantes(){
+        int total = 0;
+        for (int i = 0; i < matriculas.size(); i++) {
+            total++;
+        }
+        return total;
+    }
 
     public String getCodigo() {
         return codigo;
