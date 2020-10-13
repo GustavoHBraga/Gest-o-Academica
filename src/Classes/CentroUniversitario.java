@@ -98,9 +98,40 @@ public class CentroUniversitario {
     public List<Disciplina> getDisciplinas() {
         return disciplinas;
     }
+    
 
     public void setDisciplinas(List<Disciplina> disciplinas) {
         this.disciplinas = disciplinas;
+    }
+    
+    public Estudante FindEstudanteByTest(long id,String nome,String email){
+        for (Estudante e : estudantes) {
+            if(e.getId() == id || e.getNome().equals(nome) || e.getEmail().equals(email)){
+                return e;
+            }
+        }
+        return null;
+    }
+    
+    public Disciplina FindDisciplinaByTest(String cod, int creditos){
+        for (Disciplina d: disciplinas) {
+            if(d.getCodigo().equals(cod)|| d.getCreditos() == creditos){
+                return d;
+            }
+        }
+        return null;
+    }
+    
+    public void exibirEstundantes(){
+        for (Estudante e : estudantes) {
+            System.out.println(e.getId()+"  "+e.getNome());
+        }
+    }
+    
+    public void exibirDisciplinas(){
+        for (Disciplina d : disciplinas) {
+            System.out.println(d.getCodigo()+"  "+d.getCreditos());
+        }
     }
 
     @Override
