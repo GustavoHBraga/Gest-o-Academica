@@ -43,6 +43,7 @@ public class Matricula {
     
     @Override
     public String toString() {
-        return "Matricula{" + "estudante=" + estudante + ", disciplina=" + disciplina + '}';
+        return "Matrícula ->" + estudante +"\n"
+                + "          ->" + disciplina + "\n";
     }
 }

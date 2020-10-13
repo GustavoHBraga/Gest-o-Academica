@@ -13,7 +13,7 @@ public class Disciplina {
     //atributos de classe
     private String codigo;
     private int creditos;
-    private ArrayList<Matricula> matriculas;
+    private List<Matricula> matriculas;
 
     //metodo construtor
     public Disciplina() {
@@ -22,6 +22,7 @@ public class Disciplina {
     public Disciplina(String codigo, int creditos) {
         this.codigo = codigo;
         this.creditos = creditos;
+        this.matriculas = new ArrayList<>();
     }
 
     // MÉTODOS
@@ -68,6 +69,7 @@ public class Disciplina {
     
     @Override
     public String toString() {
-        return "Disciplina{" + "codigo=" + codigo + ", creditos=" + creditos + ", matriculas=" + matriculas + '}';
+        return "Disciplina[" + "Código:" + codigo + " |Créditos:"
+                + creditos + " |Matrículas (" + matriculas + ")]";
     }
 }
