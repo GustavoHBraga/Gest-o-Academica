@@ -7,25 +7,18 @@ import java.util.List;
  *
  * @author JPG
  */
-
 public class Disciplina {
 
-    //atributos de classe
     private String codigo;
     private int creditos;
-    private ArrayList<Matricula> matriculas;
+    private List<Matricula> matriculas;
 
-    //metodo construtor
-    public Disciplina() {
-    }    
-    
     public Disciplina(String codigo, int creditos) {
         this.codigo = codigo;
         this.creditos = creditos;
+        this.matriculas = new ArrayList<>();
     }
 
-    // MÉTODOS
-    
     public void addMatricula(Matricula matricula) {
         this.matriculas.add(matricula);
     }
@@ -38,8 +31,6 @@ public class Disciplina {
         return estudantes;
     }
 
-    // GETTERS E SETTERS
-    
     public String getCodigo() {
         return codigo;
     }
@@ -60,14 +51,14 @@ public class Disciplina {
         return matriculas;
     }
 
-    public void setMatriculas(ArrayList<Matricula> matriculas) {
+    public void setMatriculas(List<Matricula> matriculas) {
         this.matriculas = matriculas;
     }
 
-    // OVERRIDE
-    
     @Override
     public String toString() {
-        return "Disciplina{" + "codigo=" + codigo + ", creditos=" + creditos + ", matriculas=" + matriculas + '}';
+        return "Disciplina{" + "codigo=" + codigo + ", creditos=" + creditos + '}';
     }
+
+    
 }

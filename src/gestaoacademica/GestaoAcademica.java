@@ -5,6 +5,8 @@ import Classes.Estudante;
 import java.util.Scanner;
 import Classes.Disciplina;
 import Classes.Matricula;
+import java.io.IOException;
+import java.util.List;
 
 /**
  *
@@ -14,14 +16,15 @@ public class GestaoAcademica {
 
     public static Scanner entrada;
 
-    /*public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         entrada = new Scanner(System.in);
         boolean sair = false;
 
-        Estudante[] estudantes = new Estudante[5];
-        Disciplina[] disciplinas = new Disciplina[5];
-        Matricula[] matriculas = new Matricula[5];
+        List<Estudante> estudantes; // = new ArrayList<Estudante>();
+        List<Disciplina> disciplinas; // = new ArrayList<Disciplina>();
+        List<Matricula> matriculas; // = new ArrayList<Matricula>();
         CentroUniversitario centroUniversitario = new CentroUniversitario("JAVA");
+        centroUniversitario.carregarDados("arqDisciplinas.txt", "arqEstudantes.txt", "arqMatriculas.txt");
 
         while (!sair) {
             System.out.println("Escolha	uma operação: ");
@@ -37,16 +40,14 @@ public class GestaoAcademica {
             System.out.println();
             switch (escolha) {
                 case 1:
-                    mostrarInfoEstudantes(estudantes);
+                    System.out.println(centroUniversitario.getEstudantes());
                     break;
                 case 2:
-                    mostrarInfoDisciplinas(disciplinas);
+                    System.out.println(centroUniversitario.getDisciplinas());
                     break;
                 case 3:
-                    //a implementar
                     break;
                 case 4:
-                    //a implementar
                     break;
                 case 5:
                     sair = true;
@@ -59,21 +60,5 @@ public class GestaoAcademica {
         System.out.println("Fim do programa ");
 
     }
-
-    public static void mostrarInfoEstudantes(Estudante[] estudantes) {
-        System.out.println("Números e nomes de todos os alunos cadastrados ");
-        for (int i = 0; i < estudantes.length; i++) {
-            System.out.println("[" + i + "]" + estudantes[i]);
-        }
-
-    }
-
-    public static void mostrarInfoDisciplinas(Disciplina[] disciplinas) {
-        System.out.println("Códigos de todas as disciplinas ");
-        for (int i = 0; i < disciplinas.length; i++) {
-            System.out.println("[" + i + "]" + disciplinas[i]);
-        }
-
-    }*/
 
 }

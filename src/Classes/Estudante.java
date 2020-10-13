@@ -1,62 +1,34 @@
 package Classes;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author JPG
  */
-
 public class Estudante {
 
-    //atributos de classe
     private long id;
     private String nome;
     private String email;
-    private Matricula matricula;
-    private ArrayList<Matricula> matriculas;
+    private List<Matricula> matriculas;
 
-    //metodo construtor
-    public Estudante() {
-    }
-    
     public Estudante(long id, String nome, String email) {
         this.id = id;
         this.nome = nome;
         this.email = email;
-    }
-    
-    // MÉTODOS
-    
-    public void addMatricula(Matricula a){
-        this.matriculas.add(a);
+        this.matriculas = new ArrayList<>();
     }
 
-    public ArrayList<Matricula> getMatriculas() {
-        return matriculas;
-    }
-
-    public void setMatriculas(ArrayList<Matricula> matriculas) {
-        this.matriculas = matriculas;
-    }
-
-    public ArrayList<Disciplina> getDisciplinasMatriculadas() {
-        return null;
-    }
-   
-    //this.matriculas.add(matricula);
-    
-    /*public List<Disciplina> getDisciplinasMatriculadas() {
-        
+    public List<Disciplina> getDisciplinasMatriculadas() {
         List<Disciplina> disciplinas = new ArrayList<>();
         for (Matricula matricula : matriculas) {
             disciplinas.add(matricula.getDisciplina());
         }
         return disciplinas;
-    }*/
+    }
 
-    // GETTERS E SETTERS
-    
     public long getId() {
         return id;
     }
@@ -81,14 +53,21 @@ public class Estudante {
         this.email = email;
     }
 
-    public void setMatricula(Matricula matricula) {
-        this.matricula = matricula;
+    public List<Matricula> getMatriculas() {
+        return matriculas;
     }
-   
-    // OVERRIDE
-    
+
+    public void setMatriculas(List<Matricula> matriculas) {
+        this.matriculas = matriculas;
+    }
+
+    void addMatricula(Matricula matricula) {
+        this.matriculas.add(matricula);
+    }
+
     @Override
     public String toString() {
-        return "Estudante{" + "id=" + id + ", nome=" + nome + ", email=" + email + ", matriculas=" + matriculas + '}';
+        return "Estudante{" + "id=" + id + ", nome=" + nome + ", email=" + email + '}';
     }
+
 }

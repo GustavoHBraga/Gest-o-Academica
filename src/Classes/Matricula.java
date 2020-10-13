@@ -4,25 +4,16 @@ package Classes;
  *
  * @author JPG
  */
-
 public class Matricula {
 
-    //atributos de classe
     private Estudante estudante;
     private Disciplina disciplina;
-    
-    //metodo construtor
-    
-    public Matricula() {
-    }
-    
+
     public Matricula(Estudante estudante, Disciplina disciplina) {
         this.estudante = estudante;
         this.disciplina = disciplina;
     }
-    
-    // GETTERS E SETTERS
-    
+
     public Estudante getEstudante() {
         return estudante;
     }
@@ -38,11 +29,10 @@ public class Matricula {
     public void setDisciplina(Disciplina disciplina) {
         this.disciplina = disciplina;
     }
-    
-    // OVERRIDE
-    
+
     @Override
     public String toString() {
-        return "Matricula{" + "estudante=" + estudante + ", disciplina=" + disciplina + '}';
+        return "Matricula{" + "estudante=" + estudante.toString() + ", disciplina=" + disciplina.toString() + '}';
     }
+
 }
