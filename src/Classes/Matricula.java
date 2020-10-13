@@ -31,7 +31,7 @@ public class Matricula {
     }
 
     public String toString() {
-        return "Matricula{" + "estudante=" + estudante + ", disciplina=" + disciplina + '}';
+        return "Matricula{" + "estudante=" + estudante.getId() + ", disciplina=" + disciplina.getCodigo() + '}';
     }
 
 }

@@ -65,11 +65,12 @@ public class Estudante {
         this.matriculas = matriculas;
     }
 
-
     @Override
     public String toString() {
-        return "Estudante{" + "id=" + id + ", nome=" + nome + ", email=" + email + '}';
-
+        return "Estudante{" + "id=" + id + ", nome=" + nome + ", email=" + email + ", matriculas=" + matriculas + '}';
     }
+
+
+  
 
 }

@@ -25,6 +25,7 @@ public class GestaoAcademica {
         List<Matricula> matriculas; // = new ArrayList<Matricula>();
         CentroUniversitario centroUniversitario = new CentroUniversitario("JAVA");
         centroUniversitario.carregarDados("arqDisciplinas.txt", "arqEstudantes.txt", "arqMatriculas.txt");
+        System.out.println(centroUniversitario);
 
         while (!sair) {
             System.out.println("Escolha	uma operação: ");
