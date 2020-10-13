@@ -12,6 +12,7 @@ import java.util.List;
  *
  * @author phfar
  */
+
 public class GestaoAcademica {
 
     public static Scanner entrada;
@@ -20,13 +21,12 @@ public class GestaoAcademica {
         entrada = new Scanner(System.in);
         boolean sair = false;
 
-        List<Estudante> estudantes; // = new ArrayList<Estudante>();
-        List<Disciplina> disciplinas; // = new ArrayList<Disciplina>();
-        List<Matricula> matriculas; // = new ArrayList<Matricula>();
-        CentroUniversitario centroUniversitario = new CentroUniversitario("JAVA");
+        CentroUniversitario centroUniversitario = new CentroUniversitario("Senac");
         centroUniversitario.carregarDados("arqDisciplinas.txt", "arqEstudantes.txt", "arqMatriculas.txt");
         System.out.println(centroUniversitario);
 
+        System.out.println("");
+        
         while (!sair) {
 
             System.out.print("|===============>> ESCOLHA UMA OPÇÃO <<================|\n"
@@ -46,10 +46,10 @@ public class GestaoAcademica {
                     + "\n"
                     + "Digite uma opção: ");
 
-            int escolha = entrada.nextInt();
-
-            System.out.println("\n");
-            switch (escolha) {
+            int opt = entrada.nextInt();
+            System.out.println("");
+            
+            switch (opt) {
                 case 1:
                     System.out.println("COD | NOMES");
                     centroUniversitario.exibirEstundantes();
@@ -67,6 +67,7 @@ public class GestaoAcademica {
                 case 4:
                     System.out.print("Digite ID do estudante");
                     int ID = entrada.nextInt();
+                    
                     break;
                 case 5:
                     sair = true;

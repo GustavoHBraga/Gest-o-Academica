@@ -136,7 +136,9 @@ public class CentroUniversitario {
 
     @Override
     public String toString() {
-        return "CentroUniversitario{" + "nome=" + nome + ", estudantes=" + estudantes + ", disciplinas=" + disciplinas + '}';
+        return "Centro Universitario " + nome + "\n\n" 
+                + ">>>LISTA de ESTUDANTES<<<"+estudantes 
+                + "\n\n>>>LISTA de DISCIPLINAS<<<" + disciplinas;
     }
 
 }

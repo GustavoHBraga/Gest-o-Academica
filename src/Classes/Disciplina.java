@@ -7,6 +7,7 @@ import java.util.List;
  *
  * @author JPG
  */
+
 public class Disciplina {
 
     private String codigo;
@@ -57,9 +58,6 @@ public class Disciplina {
 
     @Override
     public String toString() {
-        return "Disciplina{" + "codigo=" + codigo + ", creditos=" + creditos + ", matriculas=" + matriculas + '}';
+        return "\n\nMatriculados na disciplina - Código: " + codigo + " | Créditos: " + creditos + "\n" + matriculas;
     }
-
-    
-
 }

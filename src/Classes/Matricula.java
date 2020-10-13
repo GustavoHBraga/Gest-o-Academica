@@ -4,6 +4,7 @@ package Classes;
  *
  * @author JPG
  */
+
 public class Matricula {
 
     private Estudante estudante;
@@ -30,8 +31,9 @@ public class Matricula {
         this.disciplina = disciplina;
     }
 
+    @Override
     public String toString() {
-        return "Matricula{" + "estudante=" + estudante.getId() + ", disciplina=" + disciplina.getCodigo() + '}';
+        return "Código Estudante: "+ estudante.getId()
+              +" | Código Disciplina: "+ disciplina.getCodigo()+"\n";
     }
-
 }

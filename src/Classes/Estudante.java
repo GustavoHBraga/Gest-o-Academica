@@ -7,6 +7,7 @@ import java.util.List;
  *
  * @author JPG
  */
+
 public class Estudante {
 
     private long id;
@@ -67,10 +68,6 @@ public class Estudante {
 
     @Override
     public String toString() {
-        return "Estudante{" + "id=" + id + ", nome=" + nome + ", email=" + email + ", matriculas=" + matriculas + '}';
+        return "\n\nId:" + id + " | Nome: " + nome + " | Email: " + email + "\nMatrícula(s) {"+ nome +"}\n" + matriculas;
     }
-
-
-  
-
 }
