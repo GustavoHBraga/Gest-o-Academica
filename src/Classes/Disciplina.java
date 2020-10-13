@@ -13,11 +13,6 @@ public class Disciplina {
     private int creditos;
     private List<Matricula> matriculas;
 
-<<<<<<< HEAD
-=======
-    //metodo construtor
-    
->>>>>>> 4114ff583d7590efa736373a7c65c9489736d5c3
     public Disciplina(String codigo, int creditos) {
         this.codigo = codigo;
         this.creditos = creditos;
@@ -62,13 +57,7 @@ public class Disciplina {
 
     @Override
     public String toString() {
-<<<<<<< HEAD
         return "Disciplina{" + "codigo=" + codigo + ", creditos=" + creditos + '}';
-=======
-        return "Disciplina[" + "Código:" + codigo + " |Créditos:"
-                + creditos + " |Matrículas (" + matriculas + ")]";
->>>>>>> 4114ff583d7590efa736373a7c65c9489736d5c3
     }
 
-    
 }

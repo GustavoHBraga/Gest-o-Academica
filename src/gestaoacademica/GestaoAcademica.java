@@ -46,6 +46,7 @@ public class GestaoAcademica {
                     System.out.println(centroUniversitario.getDisciplinas());
                     break;
                 case 3:
+                    
                     break;
                 case 4:
                     break;
