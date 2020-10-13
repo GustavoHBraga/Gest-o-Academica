@@ -4,23 +4,22 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author JPG
  */
+
 public class CentroUniversitario {
 
     //atributos de classe
     private String nomeFaculdade;
-    private ArrayList<Estudante> estudantes;
-    private ArrayList<Disciplina> disciplinas;
-    private ArrayList<Matricula> matriculas;
+    private List<Estudante> estudantes;
+    private List<Disciplina> disciplinas;
+    private final List<Matricula> matriculas;
 
     //metodo construtor
-    public CentroUniversitario() {
-    }
-
     public CentroUniversitario(String nome) {
         this.nomeFaculdade = nome;
         this.estudantes = new ArrayList<>();
@@ -165,7 +164,7 @@ public class CentroUniversitario {
         this.nomeFaculdade = nomeFaculdade;
     }
 
-    public ArrayList<Estudante> getEstudantes() {
+    public List<Estudante> getEstudantes() {
         return estudantes;
     }
 
@@ -173,7 +172,7 @@ public class CentroUniversitario {
         this.estudantes = estudantes;
     }
 
-    public ArrayList<Disciplina> getDisciplinas() {
+    public List<Disciplina> getDisciplinas() {
         return disciplinas;
     }
 
@@ -181,7 +180,7 @@ public class CentroUniversitario {
         this.disciplinas = disciplinas;
     }
 
-    public ArrayList<Matricula> getMatriculas() {
+    public List<Matricula> getMatriculas() {
         return matriculas;
     }
 }

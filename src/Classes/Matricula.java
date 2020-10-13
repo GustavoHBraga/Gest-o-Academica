@@ -19,8 +19,8 @@ public class Matricula {
     // OVERRIDE
     @Override
     public String toString() {
-        return "Matrícula ->" + estudante + "\n"
-                + "          ->" + disciplina + "\n";
+        return "Matrícula ->" + this.estudante + "\n"
+                + "          ->" + this.disciplina + "\n";
     }
     
     // GETTERS E SETTERS
