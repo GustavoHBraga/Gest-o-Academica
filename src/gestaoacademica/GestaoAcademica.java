@@ -71,7 +71,7 @@ public class GestaoAcademica {
                 case 4:
                     System.out.print("Digite ID do estudante: ");
                     long id = entrada.nextLong();
-                    centroUniversitario.listarDisciplinasMatriculados(id);
+                    centroUniversitario.FindEstudante(id);
                     break;
                 
                 case 5:

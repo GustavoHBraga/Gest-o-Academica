@@ -176,6 +176,7 @@ public class CentroUniversitario {
         }
         System.out.println("Total de estudantes matriculados: "+total);
     }
+    
 
     @Override
     public String toString() {
