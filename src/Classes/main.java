@@ -11,17 +11,16 @@ public class main {
         CentroUniversitario facul = new CentroUniversitario("Senac");
         facul.carregarDados("arqDisciplinas.txt","arqEstudantes.txt","arqMatriculas.txt");
         
+        System.out.println("");
         facul.exibirEstundantes();//exibir todos os estudantes 
-        System.out.println("\n");
+        System.out.println("");
         facul.exibirDisciplinas();//exibir todos os Disciplinas
-        System.out.println("\n");
+        System.out.println("");
         facul.exibirMatriculas();
-        System.out.println("\n");
+        System.out.println("");
         
         System.out.println("-------> "+facul.FindDisciplina("COD01"));
         System.out.println("-------> "+facul.FindEstudante(1));
-        
-        
         
 //        Estudante a1 = facul.FindEstudante(1);//aux para fazer matricula manual 
 //        Disciplina a2 = facul.FindDisciplina("COD01");//aux disciplina para fazer matricula manual

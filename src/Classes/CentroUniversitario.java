@@ -73,7 +73,7 @@ public class CentroUniversitario {
                 Estudante estudante = null;
                 for (Estudante est : estudantes){
                     if(est.getId() == codEst){
-                        est = estudante;
+                        estudante = est;
                     }
                 }
 
@@ -103,9 +103,9 @@ public class CentroUniversitario {
 
     // MÉTODOS
     public void exibirEstundantes() {
-        for (Estudante e : estudantes) {
+        estudantes.forEach(e -> {
             System.out.println(e);
-        }
+        });
     }
 
     public void exibirDisciplinas() {
