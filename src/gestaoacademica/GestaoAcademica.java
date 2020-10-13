@@ -28,27 +28,30 @@ public class GestaoAcademica {
         System.out.println(centroUniversitario);
 
         while (!sair) {
-            
-            System.out.println("Escolha	uma operação: ");
- 
-            System.out.println("(1) Listar os números e	nomes de todos os estudantes ");
-            
-            System.out.println("(2) Listar os códigos	de todas as disciplinas ");
-            
-            System.out.println("(3) Listar todas as informações dos estudantes matriculados "
-                    + "em uma determinada disciplina ");
-            
-            System.out.println("(4) Listar todas as informações das disciplinas em que um "
-                    + "determinado estudante está matriculado ");
-            
-            System.out.println("(5) sair ");
-            
-            System.out.print("Opção escolhida: ");
+
+            System.out.print("|===============>> ESCOLHA UMA OPÇÃO <<================|\n"
+                    + "|------------------------------------------------------|\n"
+                    + "| (1) Listar os números e nomes de todos os estudantes |\n"
+                    + "|------------------------------------------------------|\n"
+                    + "| (2) Listar os códigos de todas as disciplinas        |\n"
+                    + "|------------------------------------------------------|\n"
+                    + "| (3) Listar todas as informações dos estudantes       |\n"
+                    + "|     matriculados em uma determinada disciplina       |\n"
+                    + "|------------------------------------------------------|\n"
+                    + "| (4) Listar todas as informações das disciplinas em   |\n"
+                    + "|     que um determinado estudante está matriculado    |\n"
+                    + "|------------------------------------------------------|\n"
+                    + "| (5) Sair                                             |\n"
+                    + "|======================================================|\n"
+                    + "\n"
+                    + "Digite uma opção: ");
+
             int escolha = entrada.nextInt();
-            
+
             System.out.println("\n");
             switch (escolha) {
                 case 1:
+                    System.out.println("COD | NOMES");
                     centroUniversitario.exibirEstundantes();
                     break;
                 case 2:
@@ -56,13 +59,13 @@ public class GestaoAcademica {
                     centroUniversitario.exibirDisciplinas();
                     break;
                 case 3:
-                    
-                    System.out.println("Digite o cod da disciplina");
+
+                    System.out.print("Digite o cod da disciplina");
                     long codDisciplina = entrada.nextLong();
-                    
+
                     break;
                 case 4:
-                    System.out.println("Digite ID do estudante");
+                    System.out.print("Digite ID do estudante");
                     int ID = entrada.nextInt();
                     break;
                 case 5:
@@ -74,7 +77,5 @@ public class GestaoAcademica {
             System.out.println();
         }
         System.out.println("Fim do programa ");
-
     }
-
 }
