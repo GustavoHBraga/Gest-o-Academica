@@ -16,13 +16,13 @@ public class CentroUniversitario {
     private String nome;
     private List<Estudante> estudantes;
     private List<Disciplina> disciplinas;
-    
+    private List<Matricula> matriculas;//**
     
     public CentroUniversitario(String nome) {
         this.nome = nome;
         this.estudantes = new ArrayList<>();
         this.disciplinas = new ArrayList<>();
-        
+        this.matriculas = new ArrayList<>();//**
     }
 
     public void carregarDados(String arqDisciplinas, String arqEstudantes, String arqMatriculas) throws FileNotFoundException, IOException {
@@ -101,7 +101,10 @@ public class CentroUniversitario {
     public List<Disciplina> getDisciplinas() {
         return disciplinas;
     }
-        
+
+    public List<Matricula> getMatriculas() {//*
+        return matriculas;
+    }
 
     public void setDisciplinas(List<Disciplina> disciplinas) {
         this.disciplinas = disciplinas;
@@ -187,6 +190,17 @@ public class CentroUniversitario {
             }
         }
         return -1;
+    }
+    
+    public Matricula FindEstudanteMatricula(long id , String cod){
+        
+        for (int i = 0; i < FindTodasMatriculas(); i++) {
+            if (disciplinas.get(i).getCodigo().equals(cod) && estudantes.get(i).getId() == id) {
+                Matricula resultado = estudantes.get(i).getMatriculas().get(i);
+                return resultado;
+            }
+        }
+        return null;
     }
     
     

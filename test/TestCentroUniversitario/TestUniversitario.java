@@ -73,7 +73,7 @@ public class TestUniversitario {
             assertEquals(emailEsperado, estudanteEncontrado.getEmail());
         }
     }
-     @Test
+    @Test
     public void testMatriculas() throws IOException {
         
         CentroUniversitario facul = new CentroUniversitario("Senac");
@@ -91,37 +91,20 @@ public class TestUniversitario {
             int tamEsperado = facul.FindDisciplinaByTest(cod);
             assertEquals(tamEsperado,facul.getDisciplinas().get(i).getEstudantesMatriculados().size() );
         }
-        
-        
-        /*for (int i = 0 ;i < facul.FindTodasMatriculas(); i++) {
+        Matricula matriculaResult = null;
+        for (int i=0; i<facul.getMatriculas().size(); i++) {
             
-            long idEstudante = facul.getEstudantes().get(i).getId();
-            String codigoDisciplina = facul.getDisciplinas().get(i).getCodigo();
+            long id = facul.getEstudantes().get(i).getId();
+            String cod = facul.getDisciplinas().get(i).getCodigo();
             
-            /*Matricula Encontrado = facul.findMatriculaByTest()
-           
-                if (codigoDisciplina.equals(matricula.getDisciplina().getCodigo()) 
-                        && idEstudante == matricula.getEstudante().getId()) {
-                    matriculaEncontradaInEstudante = matricula;
-                    break;
+            if(facul.getMatriculas().get(i).getDisciplina().getCodigo().equals(cod)
+                && facul.getMatriculas().get(i).getEstudante().getId() == id){
                 
+                matriculaResult = facul.getMatriculas().get(i);
             }
-            assertNotNull(matriculaEncontradaInEstudante);
-              
-            
-            
-            
-            
-            /*Matricula matriculaEncontradaInDisciplina = null;
-            matriculas = disciplina.getMatriculas();
-            for (Matricula matricula : matriculas) {
-                if (codigoDisciplina.equals(matricula.getDisciplina().getCodigo()) 
-                           && idEstudante == matricula.getEstudante().getId()) {
-                    matriculaEncontradaInDisciplina = matricula;
-                    break;
-                }
-            }
-            assertNotNull(matriculaEncontradaInDisciplina);
-        }*/
+            assertEquals(id,matriculaResult.getEstudante().getId());
+            assertEquals(cod,matriculaResult.getDisciplina().getCodigo());
+            assertNotNull(matriculaResult);
+        }
     }
 }
