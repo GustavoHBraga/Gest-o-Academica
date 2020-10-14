@@ -67,6 +67,5 @@ public class Disciplina {
     @Override
     public String toString() {
         return "\nMatriculados na disciplina - Código: " + codigo + " | Créditos: " + creditos + " " + matriculas;
-
     }
 }

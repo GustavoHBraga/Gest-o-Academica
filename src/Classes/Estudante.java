@@ -34,8 +34,6 @@ public class Estudante {
         return disciplinas;
     }
     
-    
-
     public int somaCreditos() {
         int total = 0;
         for (Matricula matricula : matriculas) {
@@ -75,10 +73,11 @@ public class Estudante {
     public void setMatriculas(List<Matricula> matriculas) {
         this.matriculas = matriculas;
     }
+    
+    
 
     @Override
     public String toString() {
         return "\n\nId:" + id + " | Nome: " + nome + " | Email: " + email + "\nMatrícula(s): " + matriculas;
     }
 }
-

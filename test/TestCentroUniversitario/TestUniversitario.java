@@ -3,6 +3,7 @@ package TestCentroUniversitario;
 import Classes.CentroUniversitario;
 import Classes.Disciplina;
 import Classes.Estudante;
+import Classes.Matricula;
 import java.io.IOException;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -78,46 +79,40 @@ public class TestUniversitario {
         CentroUniversitario facul = new CentroUniversitario("Senac");
         facul.carregarDados("arqDisciplinas.txt","arqEstudantes.txt","arqMatriculas.txt");
         
-        
-        //int numeroObtido = facul.getEstudantes().size();
-        
-        /*for (int i=0; i<facul.getEstudantes().size(); i++) {
+        for (int i=0; i<facul.getEstudantes().size(); i++) {
             
             long id = facul.getEstudantes().get(i).getId();
-            Estudante estudante = findEstudanteById(id, estudantes);
-            if(facul.getEstudantes().get(i).){
-                
-            }
-            
-            Estudante estudante = findEstudanteById(id, estudantes);
-            assertEquals(matriculasPorEstudante[i], estudante.getMatriculas().size());,
+            int tamEsperado = facul.FindEstudanteByTest(id);
+            assertEquals(tamEsperado,facul.getEstudantes().get(i).getDisciplinasMatriculadas().size());
         }
         
-        /*for (int i=0; i<disciplinasArray.length; i++) {
-            String[] disciplinaArray = disciplinasArray[i];
-            String codigo = disciplinaArray[0];
-            Disciplina disciplina = findDisciplinaByCodigo(codigo, disciplinas);
-            assertEquals(matriculasPorDisciplina[i], disciplina.getMatriculas().size());
+        for (int i=0; i<facul.getDisciplinas().size(); i++) {
+            String cod = facul.getDisciplinas().get(i).getCodigo();
+            int tamEsperado = facul.FindDisciplinaByTest(cod);
+            assertEquals(tamEsperado,facul.getDisciplinas().get(i).getEstudantesMatriculados().size() );
         }
         
-        for (String[] matriculaArray : matriculasArray) {
-            int idEstudante = Integer.parseInt(matriculaArray[0]);
-            String codigoDisciplina = matriculaArray[1];
-            Estudante estudante = findEstudanteById(idEstudante, estudantes);
-            Disciplina disciplina = findDisciplinaByCodigo(codigoDisciplina, disciplinas);
+        
+        /*for (int i = 0 ;i < facul.FindTodasMatriculas(); i++) {
             
-            Matricula matriculaEncontradaInEstudante = null;
-            matriculas = estudante.getMatriculas();
-            for (Matricula matricula : matriculas) {
+            long idEstudante = facul.getEstudantes().get(i).getId();
+            String codigoDisciplina = facul.getDisciplinas().get(i).getCodigo();
+            
+            /*Matricula Encontrado = facul.findMatriculaByTest()
+           
                 if (codigoDisciplina.equals(matricula.getDisciplina().getCodigo()) 
                         && idEstudante == matricula.getEstudante().getId()) {
                     matriculaEncontradaInEstudante = matricula;
                     break;
-                }
+                
             }
             assertNotNull(matriculaEncontradaInEstudante);
+              
             
-            Matricula matriculaEncontradaInDisciplina = null;
+            
+            
+            
+            /*Matricula matriculaEncontradaInDisciplina = null;
             matriculas = disciplina.getMatriculas();
             for (Matricula matricula : matriculas) {
                 if (codigoDisciplina.equals(matricula.getDisciplina().getCodigo()) 
@@ -129,6 +124,4 @@ public class TestUniversitario {
             assertNotNull(matriculaEncontradaInDisciplina);
         }*/
     }
-    
-    
 }

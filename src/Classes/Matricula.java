@@ -1,5 +1,7 @@
 package Classes;
 
+import java.util.List;
+
 /**
  *
  * @author JPG
@@ -9,6 +11,9 @@ public class Matricula {
 
     private Estudante estudante;
     private Disciplina disciplina;
+    
+
+   
 
     public Matricula(Estudante estudante, Disciplina disciplina) {
         this.estudante = estudante;
@@ -31,6 +36,7 @@ public class Matricula {
         this.disciplina = disciplina;
     }
 
+    
     @Override
     public String toString() {
         return "Código Estudante: "+ estudante.getId()

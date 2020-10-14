@@ -16,14 +16,17 @@ public class CentroUniversitario {
     private String nome;
     private List<Estudante> estudantes;
     private List<Disciplina> disciplinas;
-
+    
+    
     public CentroUniversitario(String nome) {
         this.nome = nome;
         this.estudantes = new ArrayList<>();
         this.disciplinas = new ArrayList<>();
+        
     }
 
     public void carregarDados(String arqDisciplinas, String arqEstudantes, String arqMatriculas) throws FileNotFoundException, IOException {
+        
         try {
             BufferedReader lerEstudantes = new BufferedReader(new FileReader(arqEstudantes));
             BufferedReader lerDisciplinas = new BufferedReader(new FileReader(arqDisciplinas));
@@ -98,7 +101,7 @@ public class CentroUniversitario {
     public List<Disciplina> getDisciplinas() {
         return disciplinas;
     }
-    
+        
 
     public void setDisciplinas(List<Disciplina> disciplinas) {
         this.disciplinas = disciplinas;
@@ -154,6 +157,38 @@ public class CentroUniversitario {
             }
         }
     }
+    public int FindTodasMatriculas(){
+        int cont = 0;
+        for (int i = 0; i < this.estudantes.size(); i++) {
+            if(estudantes.get(i).getId() > 0 ){
+                cont += estudantes.get(i).getDisciplinasMatriculadas().size();
+            }
+        }
+        return cont;
+    }
+    public int FindEstudanteByTest(long id){
+        
+        for (Estudante e: estudantes) {
+            if(e.getId() == id){
+                int tam = e.getDisciplinasMatriculadas().size();
+                return  tam;
+            }
+        }
+        return -1;
+    }
+    
+    
+    public int FindDisciplinaByTest(String cod){
+        
+        for (Disciplina d: disciplinas) {
+            if(d.getCodigo() == cod){
+                int tam = d.getEstudantesMatriculados().size();
+                return  tam;
+            }
+        }
+        return -1;
+    }
+    
     
     public void listarEstudantesMatriculados(String cod){
         int total =0;
